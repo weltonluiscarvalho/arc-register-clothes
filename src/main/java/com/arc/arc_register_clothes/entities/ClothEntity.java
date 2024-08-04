@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 public class ClothEntity {
 
     @Id
+    @Column(name = "cloth_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long clothId;
 
@@ -16,7 +17,7 @@ public class ClothEntity {
     private String clothName;
 
     @Column(name = "cloth_description")
-    private String clothDecription;
+    private String clothDescription;
 
     @Column(name = "cloth_inclusion_date_time")
     private LocalDateTime clothInclusionDateTime;

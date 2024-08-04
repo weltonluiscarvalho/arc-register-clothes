@@ -9,8 +9,8 @@ import java.time.LocalDate;
 public class VestmentEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "vestment_id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long vestmentId;
 
     @Column(name = "vestment_color")

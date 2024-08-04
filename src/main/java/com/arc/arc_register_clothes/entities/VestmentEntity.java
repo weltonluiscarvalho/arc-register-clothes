@@ -36,4 +36,11 @@ public class VestmentEntity {
     @JoinColumn(name = "cloth_id")
     @JsonBackReference
     private Long clothId;
+
+    @ManyToOne(
+            fetch = FetchType.LAZY
+    )
+    @JoinColumn(name = "vestment_type_id")
+    @JsonBackReference
+    private Long vestmentTypeId;
 }

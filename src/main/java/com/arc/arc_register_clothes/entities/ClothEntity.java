@@ -1,8 +1,10 @@
 package com.arc.arc_register_clothes.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "cloth_entity")
@@ -21,4 +23,11 @@ public class ClothEntity {
 
     @Column(name = "cloth_inclusion_date_time")
     private LocalDateTime clothInclusionDateTime;
+
+    @OneToMany(
+            mappedBy = "clothId",
+            cascade = CascadeType.ALL
+    )
+    @JsonManagedReference
+    private List<VestmentEntity> vestmentEntities;
 }

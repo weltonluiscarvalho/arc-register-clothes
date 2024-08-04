@@ -1,5 +1,6 @@
 package com.arc.arc_register_clothes.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -22,4 +23,10 @@ public class VestmentEntity {
     @Column(name = "vestment_in_use_indicator")
     private Boolean vestmentInUseIndicator;
 
+    @ManyToOne(
+            fetch = FetchType.LAZY
+    )
+    @JoinColumn(name = "brand_id")
+    @JsonBackReference
+    private Long brandId;
 }

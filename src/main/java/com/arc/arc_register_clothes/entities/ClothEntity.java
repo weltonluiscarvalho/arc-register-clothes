@@ -1,18 +1,17 @@
 package com.arc.arc_register_clothes.entities;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
-import java.time.LocalDateTime;
-import java.util.List;
+import java.time.LocalDate;
 
 @Entity
-@Table(name = "cloth_entity")
+@Table(name = "cloth_table")
 public class ClothEntity {
 
     @Id
     @Column(name = "cloth_id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "cloth_table_seq")
+    @SequenceGenerator(name = "cloth_table_seq", allocationSize = 1)
     private Long clothId;
 
     @Column(name = "cloth_name")
@@ -21,13 +20,6 @@ public class ClothEntity {
     @Column(name = "cloth_description")
     private String clothDescription;
 
-    @Column(name = "cloth_inclusion_date_time")
-    private LocalDateTime clothInclusionDateTime;
-
-    @OneToMany(
-            mappedBy = "clothId",
-            cascade = CascadeType.ALL
-    )
-    @JsonManagedReference
-    private List<VestmentEntity> vestmentEntities;
+    @Column(name = "inclusion_date")
+    private LocalDate clothInclusionDateTime;
 }
